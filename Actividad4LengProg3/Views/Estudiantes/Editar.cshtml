@@ -37,6 +37,7 @@
             <div class="col-md-6">
                 <label asp-for="FechaNacimiento" class="form-label text-secondary">Fecha de nacimiento</label>
                 <input asp-for="FechaNacimiento" class="form-control" />
+                <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
             </div>
 
             <div class="col-md-6">
@@ -45,6 +46,7 @@
                     <option value=""> --- </option>
                     <option>Masculino</option>
                     <option>Femenino</option>
+                    <span asp-validation-for="Genero" class="text-danger"></span>
                 </select>
             </div>
 
@@ -101,11 +103,12 @@
             <div class="col-md-6">
                 <label asp-for="Tanda" class="form-label text-secondary">Tanda (Matutina/Verpestina/Nocturna)</label>
                 <select asp-for="Tanda" class="form-select" style="cursor:pointer !important">
-                    <option style="cursor:pointer !important;"> --- </option>
+                    <option> --- </option>
                     <option>Matutina</option>
                     <option>Verpestina</option>
                     <option>Nocturna</option>
                 </select>
+                <span asp-validation-for="Tanda" class="text-danger"></span>
             </div>
 
             <div class="col-md-5">

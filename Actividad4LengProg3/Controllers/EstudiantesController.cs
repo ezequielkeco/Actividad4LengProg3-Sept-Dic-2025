@@ -77,13 +77,13 @@ namespace Actividad4LengProg3.Controllers
             return RedirectToAction("Index", model);
         }
         [HttpPost]
-        public IActionResult Eliminar(EstudianteViewModel model)
+        public IActionResult Eliminar(string matricula)
         {
-            var estudiante = estudiantes.FirstOrDefault(e => e.Matricula.Equals(model.Matricula, StringComparison.InvariantCultureIgnoreCase));
-
+            var estudiante = estudiantes.FirstOrDefault(e => e.Matricula == matricula);
             if (estudiante != null)
             {
                 estudiantes.Remove(estudiante);
+                TempData["SuccessMessage"] = "Estudiante eliminado correctamente.";
             }
 
             return RedirectToAction("ListaDeEstudiantes");

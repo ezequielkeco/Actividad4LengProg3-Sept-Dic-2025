@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Reflection.Metadata.Ecma335;
 using System.Reflection;
 
-namespace Actividad3LengProg3.Controllers
+namespace Actividad4LengProg3.Controllers
 {
     public class EstudiantesController : Controller
     {

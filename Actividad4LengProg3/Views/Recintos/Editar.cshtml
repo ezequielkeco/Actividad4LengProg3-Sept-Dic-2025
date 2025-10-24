@@ -1,0 +1,33 @@
+﻿@model Actividad4LengProg3.Models.RecintoViewModel
+@{
+    ViewData["Title"] = "Editar Recinto";
+}
+
+<div class="container mt-4">
+    <div class="card shadow p-4">
+        <h3 class="mb-3 text-primary">@ViewData["Title"]</h3>
+
+        <form asp-action="Editar" method="post" class="row g-3">
+            <div class="col-md-6">
+                <label asp-for="Codigo" class="form-label"></label>
+                <input asp-for="Codigo" class="form-control" readonly />
+                <span asp-validation-for="Codigo" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Nombre" class="form-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+
+            <div class="col-12 text-end">
+                <a asp-action="Index" class="btn btn-outline-secondary">Cancelar</a>
+                <button type="submit" class="btn btn-primary">Actualizar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

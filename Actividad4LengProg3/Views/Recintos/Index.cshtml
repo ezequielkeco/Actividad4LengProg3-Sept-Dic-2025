@@ -1,0 +1,41 @@
+﻿@model List<Actividad4LengProg3.Models.RecintoViewModel>
+
+<div class="container mt-4">
+    <div class="card shadow p-4">
+        <div class="d-flex justify-content-between mb-3">
+            <h3>Recintos Registrados</h3>
+            <a asp-action="Crear" class="btn btn-success">Nuevo Recinto</a>
+        </div>
+
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success text-center">@TempData["SuccessMessage"]</div>
+        }
+
+        <table class="table table-striped table-hover">
+            <thead class="table-light">
+                <tr>
+                    <th>Código</th>
+                    <th>Nombre</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var r in Model)
+                {
+                    <tr>
+                        <td>@r.Codigo</td>
+                        <td>@r.Nombre</td>
+                        <td>
+                            <a asp-action="Editar" asp-route-codigo="@r.Codigo" class="btn btn-warning btn-sm">Editar</a>
+                            <form asp-action="Eliminar" method="post" class="d-inline">
+                                <input type="hidden" name="codigo" value="@r.Codigo" />
+                                <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

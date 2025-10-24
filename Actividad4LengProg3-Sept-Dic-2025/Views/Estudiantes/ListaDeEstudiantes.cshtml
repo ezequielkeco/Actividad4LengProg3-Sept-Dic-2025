@@ -1,0 +1,68 @@
+﻿﻿@model List<EstudianteViewModel>
+@{
+    ViewData["Title"] = "Estudiantes Registrados";
+}
+
+<div class="container mt-4">
+    <div class="card shadow p-4">
+        <div class="d-flex justify-content-between mb-3">
+            <h3>@ViewData["Title"]</h3>
+            <a asp-action="Index" class="btn btn-success">Nuevo registro</a>
+        </div>
+
+        <table class="table table-striped table-hover">
+            <thead class="table-light">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Matrícula</th>
+                    <th>Carrera</th>
+                    <th>Campus</th>
+                    <th>Tanda</th>
+                    <th>Beca</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (EstudianteViewModel it in Model)
+                {
+                    <tr>
+                        <td>@it.NombreCompleto</td>
+                        <td>@it.Matricula</td>
+                        <td>@it.Carrera</td>
+                        <td>@it.Campus</td>
+                        <td>@it.Tanda</td>
+                        <td>
+                            @(it.EstaBecado ? $"{it.PorcentajeBeca}%" : "No")
+                        </td>
+                        <td>
+                            <a href="/Estudiantes/Editar/@it.Matricula" class="btn btn-warning">Editar</a>
+                            <a asp-action="Eliminar" class="btn btn-danger">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="modal align-content-center" id="ModalEliminar">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content align-content-center">
+
+            <div class="modal-header">
+                <h4>¿Desea eliminar al estudiante?</h4>
+            </div>
+
+            <div class="modal-body">
+                Los datos del estudiante serán eliminados de la base de datos.
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+
+                <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#ModalEliminar">Eliminar</a>
+            </div>
+
+        </div>
+    </div>
+</div>

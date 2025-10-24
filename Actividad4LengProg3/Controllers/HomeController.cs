@@ -1,8 +1,8 @@
 using System.Diagnostics;
-using Actividad4LengProg3_Sept_Dic_2025.Models;
+using Actividad4LengProg3.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Actividad4LengProg3_Sept_Dic_2025.Controllers
+namespace Actividad4LengProg3.Controllers
 {
     public class HomeController : Controller
     {

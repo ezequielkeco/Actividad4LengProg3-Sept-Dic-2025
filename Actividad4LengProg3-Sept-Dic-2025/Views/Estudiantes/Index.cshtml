@@ -1,0 +1,141 @@
+﻿﻿@model Actividad4LengProg3.Models.EstudianteViewModel
+@{
+    ViewData["Title"] = "Registro de Estudiantes";
+}
+
+<div class="container mt-4">
+    <div class="card shadow p-4">
+        <h3 class="mb-3 pt-3 text-center color:grey">@ViewData["Title"]</h3>
+
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success text-center">@TempData["SuccessMessage"]</div>
+        }
+
+        <form asp-action="Registrar" method="post" class="row g-3 mt-4">
+            <div class="col-md-6">
+                <label asp-for="NombreCompleto" class="form-label text-secondary">Nombre Completo</label>
+                <input asp-for="NombreCompleto" class="form-control" placeholder="Nombre y Apellido"/>
+                
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Direccion" class="form-label text-secondary">Dirección</label>
+                <input asp-for="Direccion" class="form-control" placeholder="Calle Nombre #0, Sector, Ciudad" />
+                <span asp-validation-for="Direccion" class="text-danger">Debe proporcionar la dirección</span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Celular" class="form-label text-secondary">Celular</label>
+                <input asp-for="Celular" class="form-control" placeholder="000-000-0000" />
+                <span asp-validation-for="Celular" class="text-danger">Debe proporcionar su número de contacto</span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Telefono" class="form-label text-secondary">Teléfono</label>
+                <input asp-for="Telefono" class="form-control" placeholder="000-000-0000" />
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="FechaNacimiento" class="form-label text-secondary">Fecha de nacimiento</label>
+                <input asp-for="FechaNacimiento" class="form-control" />
+                <span asp-validation-for="FechaNacimiento" class="text-danger">Debe proporcionar la fecha de nacimiento</span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Genero" class="form-label text-secondary">Género</label>
+                <select asp-for="Genero" class="form-select" style="cursor:pointer !important">
+                    <option value=""> --- </option>
+                    <option>Masculino</option>
+                    <option>Femenino</option>
+                </select>
+                <span asp-validation-for="Genero" class="text-danger">Debe seleccionar el género</span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Matricula" class="form-label text-secondary">Matrícula</label>
+                <input asp-for="Matricula" class="form-control" placeholder="SD-0000-00000" />
+                <span asp-validation-for="Matricula" class="text-danger">Debe proporcionar una matrícula</span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Carrera" class="form-label text-secondary">Carrera</label>
+                <select asp-for="Carrera" class="form-select" style="cursor:pointer !important">
+                    <option value=""class="cursor-pointer"> --- </option>
+                    <option>Educación - Orientación Escolar</option>
+                    <option>Educación Primaria 1er Ciclo</option>
+                    <option>Educación Primaria 2do Ciclo</option>
+                    <option>Educación - Administración</option>
+                    <option>Lengua Española y Literatura</option>
+                    <option>Ciencias de la Comunicación</option>
+                    <option>Administración Turística</option>
+                    <option>Administración de Empresas</option>
+                    <option>Ingeniería Agronómica</option>
+                    <option>Ingeniería de Software</option>
+                    <option>Ingeniería Eléctrica</option>
+                    <option>Ingeniería Industrial</option>
+                    <option>Odontología</option>
+                    <option>Contabilidad</option>
+                    <option>Enfermería</option>
+                    <option>Derecho</option>
+                </select>
+                <span asp-validation-for="Carrera" class="text-danger">Debe seleccionar la carrera</span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Campus" class="form-label text-secondary">Campus</label>
+                <select asp-for="Campus" class="form-select" style="cursor:pointer !important">
+                    <option value=""> --- </option>
+                    <option>Metropolitano</option>
+                    <option>Santo Domingo Oeste</option>
+                    <option>Baní</option>
+                    <option>Moca</option>
+                    <option>Las Américas</option>
+                    <option>Las Matas San Juan</option>
+                </select>
+                <span asp-validation-for="Campus" class="text-danger">Debe seleccionar el campus</span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Correo" class="form-label text-secondary">Correo Institucional</label>
+                <input asp-for="Correo" class="form-control" placeholder="SD-0000-00000@ufhec.edu.do" />
+                <span asp-validation-for="Correo" class="text-danger">Debe proporcionar el correo institucional</span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Tanda" class="form-label text-secondary">Tanda (Matutina/Verpestina/Nocturna)</label>
+                <select asp-for="Tanda" class="form-select" style="cursor:pointer !important">
+                    <option style="cursor:pointer !important;"> --- </option>
+                    <option>Matutina</option>
+                    <option>Verpestina</option>
+                    <option>Nocturna</option>
+                </select>
+                <span asp-validation-for="Tanda" class="text-danger">Debe seleccionar la tanda de estudio</span>
+            </div>
+
+            <div class="col-md-5">
+                <div class="form-check">
+                    <label asp-for="EstaBecado" class="form-check-label">Estudiante Becado</label>
+                    <input asp-for="EstaBecado" class="form-check-input" type="checkbox" id="chkBeca" style="cursor:pointer !important" />
+                </div>
+                <div class="col-md-5" id="becaField" style="display:none;">
+                    <label asp-for="PorcentajeBeca" class="form-label text-secondary">Porcentaje de beca</label>
+                    <input asp-for="PorcentajeBeca" class="form-control" type="number" min="0" max="100" />
+                </div>
+            </div>
+            <div class="col-6">
+                <button type="submit" class="btn btn-primary">Registrar</button>
+                <a href="/Estudiantes/ListaDeEstudiantes" class="btn btn-outline-secondary">Mostrar registro</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+
+    <script>
+        document.getElementById("chkBeca").addEventListener("change", function () {
+        document.getElementById("becaField").style.display = this.checked ? "block" : "none";
+        });
+    </script>
+}

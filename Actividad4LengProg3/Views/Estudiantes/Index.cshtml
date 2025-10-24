@@ -130,11 +130,10 @@
 </div>
 
 @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
         <script>
         document.getElementById("chkBeca").addEventListener("change", function () {
         document.getElementById("becaField").style.display = this.checked ? "block" : "none";
         });
     </script>
-
-    <partial name="_ValidationScriptsPartial" />
 }

@@ -36,7 +36,7 @@
                         </td>
                         <td>
                            <a asp-action="Editar" asp-route-codigo="@e.Matricula" class="btn btn-warning btn-sm">Editar</a>
-                           <form asp-action="Eliminar" method="post" class="d-inline">
+                           <form asp-action="Editar" method="post" class="d-inline">
                               <input type="hidden" name="matricula" value="@e.Matricula" />
                               <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
                            </form>

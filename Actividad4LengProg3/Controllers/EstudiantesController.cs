@@ -9,10 +9,10 @@ namespace Actividad4LengProg3.Controllers
     public class EstudiantesController : Controller
     {
         private static List<EstudianteViewModel> estudiantes = new List<EstudianteViewModel>();
-
+        [HttpGet]
         public IActionResult Index()
         {
-            return View(estudiantes);
+            return View();
         }
 
         [HttpPost]
@@ -21,10 +21,11 @@ namespace Actividad4LengProg3.Controllers
             if (ModelState.IsValid)
             {
                 estudiantes.Add(model);
-                TempData["SuccessMessage"] = "Estudiante registrado de forma exitosa.";
+
+                TempData["SuccessMessage"] = "Estudiante agregado de forma exitosa.";
                 return RedirectToAction("Index");
             }
-            return View(model);
+            return RedirectToAction("Index", model);
         }
 
         [HttpGet]
@@ -59,9 +60,12 @@ namespace Actividad4LengProg3.Controllers
                     estudiante.Genero = model.Genero;
                     estudiante.Tanda = model.Tanda;
                     TempData["SuccessMessage"] = "Información del estudiante editada satisfactoriamente.";
+                    return View(estudiante);
                 }
+
                 return RedirectToAction("ListaDeEstudiantes");
             }
+
             return View(model);
         }
 
@@ -74,6 +78,7 @@ namespace Actividad4LengProg3.Controllers
                 estudiantes.Remove(estudiante);
                 TempData["SuccessMessage"] = "Estudiante eliminado correctamente.";
             }
+
             return RedirectToAction("ListaDeEstudiantes");
         }
     }

@@ -1,6 +1,6 @@
 ﻿@model List<Actividad4LengProg3.Models.CarreraViewModel>
 @{
-    ViewData["Title"] = "Listado de Carreras";
+    ViewData["Title"] = "Lista de Carreras";
 }
 
 <div class="container mt-4">
@@ -19,9 +19,8 @@
             <thead class="table-light">
                 <tr>
                     <th>Código</th>
-                    <th>Nombre</th>
-                    <th>Créditos</th>
-                    <th>Materias</th>
+                    <th>Nombre de la carrera</th>
+                    <th>Cant. de Créditos</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -32,7 +31,6 @@
                         <td>@c.Codigo</td>
                         <td>@c.Nombre</td>
                         <td>@c.CantidadCreditos</td>
-                        <td>@c.CantidadMaterias</td>
                         <td>
                             <a asp-action="Editar" asp-route-codigo="@c.Codigo" class="btn btn-warning btn-sm">Editar</a>
                             <form asp-action="Eliminar" method="post" class="d-inline">

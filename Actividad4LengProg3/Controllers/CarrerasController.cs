@@ -48,7 +48,6 @@ namespace Actividad4LengProg3.Controllers
                 {
                     carrera.Nombre = model.Nombre;
                     carrera.CantidadCreditos = model.CantidadCreditos;
-                    carrera.CantidadMaterias = model.CantidadMaterias;
                     TempData["SuccessMessage"] = "Carrera actualizada correctamente.";
                 }
                 return RedirectToAction("Index");

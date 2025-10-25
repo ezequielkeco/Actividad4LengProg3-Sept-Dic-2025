@@ -60,12 +60,9 @@ namespace Actividad4LengProg3.Controllers
                     estudiante.Genero = model.Genero;
                     estudiante.Tanda = model.Tanda;
                     TempData["SuccessMessage"] = "Información del estudiante editada satisfactoriamente.";
-                    return View(estudiante);
                 }
-
                 return RedirectToAction("ListaDeEstudiantes");
             }
-
             return View(model);
         }
 

@@ -33,17 +33,12 @@ namespace Actividad4LengProg3.Controllers
         {
             return View(estudiantes);
         }
-        [HttpGet]
-        public IActionResult Editar(string id)
+      
+        public IActionResult Editar(string matricula)
         {
-            var estudiante = estudiantes.FirstOrDefault(e => e.Matricula.Equals(id, StringComparison.InvariantCultureIgnoreCase));
-
-            if (estudiantes != null)
-            {
-                return View(estudiante);
-            }
-
-            return RedirectToAction("ListaDeEstudiantes", estudiante);
+            var estudiante = estudiantes.FirstOrDefault(e => e.Matricula == matricula);
+            if (estudiante == null) return NotFound();
+            return View(estudiante);
         }
 
         [HttpPost]
@@ -51,9 +46,7 @@ namespace Actividad4LengProg3.Controllers
         {
             if (ModelState.IsValid)
             {
-
-                var estudiante = estudiantes.FirstOrDefault(e => e.Matricula.Equals(model.Matricula, StringComparison.InvariantCultureIgnoreCase));
-
+                var estudiante = estudiantes.FirstOrDefault(e => e.Matricula == model.Matricula);
                 if (estudiantes != null)
                 {
                     estudiante.NombreCompleto = model.NombreCompleto;
@@ -66,16 +59,16 @@ namespace Actividad4LengProg3.Controllers
                     estudiante.Telefono = model.Telefono;
                     estudiante.Genero = model.Genero;
                     estudiante.Tanda = model.Tanda;
-
-                    TempData["SuccessMessage"] = "Información del estudiante editada de forma exitosa.";
+                    TempData["SuccessMessage"] = "Información del estudiante editada satisfactoriamente.";
                     return View(estudiante);
                 }
 
-                return RedirectToAction("Index");
+                return RedirectToAction("ListaDeEstudiantes");
             }
 
-            return RedirectToAction("Index", model);
+            return View(model);
         }
+
         [HttpPost]
         public IActionResult Eliminar(string matricula)
         {

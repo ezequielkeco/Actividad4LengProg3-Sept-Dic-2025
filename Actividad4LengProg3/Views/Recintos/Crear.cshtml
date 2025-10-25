@@ -5,24 +5,24 @@
 
 <div class="container mt-4">
     <div class="card shadow p-4">
-        <h3 class="mb-3 text-success">@ViewData["Title"]</h3>
+        <h3 class="mb-3 color:grey">@ViewData["Title"]</h3>
 
         <form asp-action="Crear" method="post" class="row g-3">
             <div class="col-md-6">
-                <label asp-for="Codigo" class="form-label"></label>
-                <input asp-for="Codigo" class="form-control" placeholder="Ej. R001" />
+                <label asp-for="Codigo" class="form-label">Código</label>
+                <input asp-for="Codigo" class="form-control" placeholder="R-214" />
                 <span asp-validation-for="Codigo" class="text-danger"></span>
             </div>
 
             <div class="col-md-6">
-                <label asp-for="Nombre" class="form-label"></label>
-                <input asp-for="Nombre" class="form-control" placeholder="Ej. Recinto Santo Domingo" />
+                <label asp-for="Nombre" class="form-label">Nombre del Recinto</label>
+                <input asp-for="Nombre" class="form-control" placeholder="Baní" />
                 <span asp-validation-for="Nombre" class="text-danger"></span>
             </div>
 
-            <div class="col-12 text-end">
+            <div class="col-6">
+                <button type="submit" class="btn btn-primary">Guardar</button>
                 <a asp-action="Index" class="btn btn-outline-secondary">Cancelar</a>
-                <button type="submit" class="btn btn-success">Guardar</button>
             </div>
         </form>
     </div>

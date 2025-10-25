@@ -5,7 +5,7 @@
 
 <div class="container mt-4">
     <div class="card shadow p-4">
-        <h3 class="mb-3 text-primary">@ViewData["Title"]</h3>
+        <h3 class="mb-3 color:grey">@ViewData["Title"]</h3>
 
         <form asp-action="Editar" method="post" class="row g-3">
             <div class="col-md-6">
@@ -20,9 +20,9 @@
                 <span asp-validation-for="Nombre" class="text-danger"></span>
             </div>
 
-            <div class="col-12 text-end">
-                <a asp-action="Index" class="btn btn-outline-secondary">Cancelar</a>
+            <div class="col-6">
                 <button type="submit" class="btn btn-primary">Actualizar</button>
+                <a asp-action="Index" class="btn btn-outline-secondary">Cancelar</a>
             </div>
         </form>
     </div>

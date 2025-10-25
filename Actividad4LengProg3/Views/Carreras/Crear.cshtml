@@ -8,26 +8,26 @@
         <h3 class="mb-3 color:grey">@ViewData["Title"]</h3>
 
         <form asp-action="Crear" method="post" class="row g-3">
-            <div class="col-md-4">
-                <label asp-for="Codigo" class="form-label"></label>
-                <input asp-for="Codigo" class="form-control" placeholder="Ej. C001" />
+            <div class="col-md-6">
+                <label asp-for="Codigo" class="form-label">Código</label>
+                <input asp-for="Codigo" class="form-control" placeholder="MT-100" />
                 <span asp-validation-for="Codigo" class="text-danger"></span>
             </div>
 
-            <div class="col-md-8">
-                <label asp-for="Nombre" class="form-label"></label>
-                <input asp-for="Nombre" class="form-control" placeholder="Ej. Ingeniería en Sistemas" />
+            <div class="col-md-6">
+                <label asp-for="Nombre" class="form-label">Nombre de la Carrera</label>
+                <input asp-for="Nombre" class="form-control" placeholder="Derecho" />
                 <span asp-validation-for="Nombre" class="text-danger"></span>
             </div>
 
             <div class="col-md-6">
-                <label asp-for="CantidadCreditos" class="form-label"></label>
+                <label asp-for="CantidadCreditos" class="form-label">Cantidad de Créditos</label>
                 <input asp-for="CantidadCreditos" class="form-control" type="number" />
                 <span asp-validation-for="CantidadCreditos" class="text-danger"></span>
             </div>
 
-            <div class="col-6">
-                <button type="submit" class="btn btn-success">Guardar</button>
+            <div class="col-6 my-5">
+                <button type="submit" class="btn btn-primary">Guardar</button>
                 <a asp-action="Index" class="btn btn-outline-secondary">Cancelar</a>
             </div>
         </form>

@@ -9,9 +9,13 @@ namespace Actividad4LengProg3.Controllers
     public class EstudiantesController : Controller
     {
         private static List<EstudianteViewModel> estudiantes = new List<EstudianteViewModel>();
+
+        private static List<CarreraViewModel> carreras = CarrerasController.carreras;
+
         [HttpGet]
         public IActionResult Index()
         {
+            ViewBag.Carreras = carreras;
             return View();
         }
 

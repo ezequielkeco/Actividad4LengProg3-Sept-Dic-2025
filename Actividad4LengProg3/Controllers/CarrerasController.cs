@@ -7,8 +7,15 @@ namespace Actividad4LengProg3.Controllers
 {
     public class CarrerasController : Controller
     {
-        private static List<CarreraViewModel> carreras = new List<CarreraViewModel>();
-
+        public static List<CarreraViewModel> carreras = new List<CarreraViewModel>()
+        {
+        new CarreraViewModel { Codigo = "C001", Nombre = "Ingeniería de Software", CantidadCreditos = 240, CantidadMaterias = 48 },
+        new CarreraViewModel { Codigo = "C002", Nombre = "Ingeniería Eléctrica", CantidadCreditos = 200, CantidadMaterias = 40 },
+        new CarreraViewModel { Codigo = "C003", Nombre = "Enfermería", CantidadCreditos = 180, CantidadMaterias = 36 },
+        new CarreraViewModel { Codigo = "C004", Nombre = "Derecho", CantidadCreditos = 210, CantidadMaterias = 42 },
+        new CarreraViewModel { Codigo = "C005", Nombre = "Educación Inicial", CantidadCreditos = 195, CantidadMaterias = 37 },
+        new CarreraViewModel { Codigo = "C006", Nombre = "Contabilidad", CantidadCreditos = 215, CantidadMaterias = 47 }
+        };
         public IActionResult Index()
         {
             return View(carreras);
@@ -48,6 +55,7 @@ namespace Actividad4LengProg3.Controllers
                 {
                     carrera.Nombre = model.Nombre;
                     carrera.CantidadCreditos = model.CantidadCreditos;
+                    carrera.CantidadMaterias = model.CantidadMaterias;
                     TempData["SuccessMessage"] = "Carrera actualizada correctamente.";
                 }
                 return RedirectToAction("Index");
@@ -67,4 +75,5 @@ namespace Actividad4LengProg3.Controllers
             return RedirectToAction("Index");
         }
     }
+
 }

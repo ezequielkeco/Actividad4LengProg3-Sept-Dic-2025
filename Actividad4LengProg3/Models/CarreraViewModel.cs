@@ -12,5 +12,8 @@ namespace Actividad4LengProg3.Models
 
         [Required(ErrorMessage = "Indique la cantidad de créditos.")]
         public int CantidadCreditos { get; set; }
+
+        [Required(ErrorMessage = "Indique la cantidad de materias")]
+        public int CantidadMaterias {  get; set; }
     }
 }

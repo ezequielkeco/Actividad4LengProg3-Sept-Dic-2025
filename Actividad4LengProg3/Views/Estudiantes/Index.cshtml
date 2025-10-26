@@ -60,6 +60,11 @@
                 <label asp-for="Carrera" class="form-label text-secondary">Carrera</label>
                 <select asp-for="Carrera" class="form-select" style="cursor:pointer !important">
                     <option value="" class="cursor-pointer">Seleccione una opción</option>
+                    @foreach (var c in ViewBag.Carreras)
+                    {
+                        <option value="@c.Nombre">@c.Nombre</option>
+                    }
+                    <!--
                     <option>Educación - Orientación Escolar</option>
                     <option>Educación Primaria 1er Ciclo</option>
                     <option>Educación Primaria 2do Ciclo</option>
@@ -76,6 +81,7 @@
                     <option>Contabilidad</option>
                     <option>Enfermería</option>
                     <option>Derecho</option>
+                    -->
                 </select>
                 <span asp-validation-for="Carrera" class="text-danger"></span>
             </div>

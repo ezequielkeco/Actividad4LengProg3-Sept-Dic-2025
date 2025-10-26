@@ -26,6 +26,12 @@
                 <span asp-validation-for="CantidadCreditos" class="text-danger"></span>
             </div>
 
+            <div class="col-md-6">
+                <label asp-for="CantidadMaterias" class="form-label">Cantidad de Materias</label>
+                <input asp-for="CantidadMaterias" class="form-control" type="number" />
+                <span asp-validation-for="CantidadMaterias" class="text-danger"></span>
+            </div>
+
             <div class="col-6 my-5">
                 <button type="submit" class="btn btn-primary">Guardar</button>
                 <a asp-action="Index" class="btn btn-outline-secondary">Cancelar</a>

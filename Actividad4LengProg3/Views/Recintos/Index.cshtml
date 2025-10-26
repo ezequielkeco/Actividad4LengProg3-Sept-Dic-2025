@@ -16,7 +16,8 @@
             <thead class="table-light">
                 <tr>
                     <th>Código</th>
-                    <th>Nombre del Recinto</th>
+                    <th style="width: 250px;">Nombre del Recinto</th>
+                    <th style="width: 500px;">Dirección del Recinto</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -26,12 +27,13 @@
                     <tr>
                         <td>@r.Codigo</td>
                         <td>@r.Nombre</td>
+                        <td>@r.Direccion</td>
                         <td>
-                            <a asp-action="Editar" asp-route-codigo="@r.Codigo" class="btn btn-warning btn-sm">Editar</a>
-                            <form asp-action="Eliminar" method="post" class="d-inline">
-                                <input type="hidden" name="codigo" value="@r.Codigo" />
-                                <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                            </form>
+                           <a asp-action="Editar" asp-route-codigo="@r.Codigo" class="btn btn-warning btn-sm">Editar</a>
+                           <form asp-action="Eliminar" method="post" class="d-inline">
+                              <input type="hidden" name="codigo" value="@r.Codigo" />
+                              <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                           </form>
                         </td>
                     </tr>
                 }

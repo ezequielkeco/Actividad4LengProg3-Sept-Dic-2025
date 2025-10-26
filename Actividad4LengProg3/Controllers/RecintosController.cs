@@ -7,8 +7,12 @@ namespace Actividad4LengProg3.Controllers
 {
     public class RecintosController : Controller
     {
-        private static List<RecintoViewModel> recintos = new List<RecintoViewModel>();
-
+        public static List<RecintoViewModel> recintos = new List<RecintoViewModel>()
+        {
+        new RecintoViewModel { Codigo = "R001", Nombre = "Santo Domingo Oeste", Direccion = "Av.Isabel Aguiar #100, Herrera, Santo Domingo Oeste, Rep. Dom." },
+        new RecintoViewModel { Codigo = "R002", Nombre = "Metropolitano", Direccion = "Av. Máximo Gómez esq. César Nicolás Penson, La Esperilla, Santo Domingo, D.N., Rep. Dom." },
+        new RecintoViewModel { Codigo = "R003", Nombre = "Baní", Direccion = "Km. 1 Carretera Sánchez, Escondido, Bani, Rep. Dom." },
+        };
         public IActionResult Index()
         {
             return View(recintos);
@@ -47,6 +51,7 @@ namespace Actividad4LengProg3.Controllers
                 if (recinto != null)
                 {
                     recinto.Nombre = model.Nombre;
+                    recinto.Direccion = model.Direccion;
                     TempData["SuccessMessage"] = "Recinto actualizado correctamente.";
                 }
                 return RedirectToAction("Index");

@@ -67,12 +67,10 @@
                 <label asp-for="Campus" class="form-label text-secondary">Campus</label>
                 <select asp-for="Campus" class="form-select" style="cursor:pointer !important">
                     <option value="">Seleccione una opción</option>
-                    <option>Metropolitano</option>
-                    <option>Santo Domingo Oeste</option>
-                    <option>Baní</option>
-                    <option>Moca</option>
-                    <option>Las Américas</option>
-                    <option>Las Matas San Juan</option>
+                    @foreach (var r in ViewBag.Recintos)
+                    {
+                        <option value="@r.Nombre">@r.Nombre</option>
+                    }
                 </select>
                 <span asp-validation-for="Campus" class="text-danger"></span>
             </div>

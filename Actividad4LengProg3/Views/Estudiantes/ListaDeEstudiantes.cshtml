@@ -1,4 +1,4 @@
-﻿@model List<EstudianteViewModel>
+﻿@model IEnumerable<Actividad4LengProg3.Models.EstudianteViewModel>
 @{
     ViewData["Title"] = "Estudiantes Registrados";
 }
@@ -28,7 +28,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (EstudianteViewModel e in Model)
+                @foreach (var e in Model)
                 {
                     <tr>
                         <td>@e.NombreCompleto</td>

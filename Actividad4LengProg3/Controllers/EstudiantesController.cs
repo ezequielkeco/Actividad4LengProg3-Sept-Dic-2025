@@ -8,14 +8,45 @@ namespace Actividad4LengProg3.Controllers
 {
     public class EstudiantesController : Controller
     {
-        private static List<EstudianteViewModel> estudiantes = new List<EstudianteViewModel>();
+        public static List<EstudianteViewModel> estudiantes = new List<EstudianteViewModel>()
+        {
+            new EstudianteViewModel {
+                NombreCompleto = "Ezequiel Santos",
+                Direccion = "Calle 12 #31, Sto. Dgo. Oeste",
+                Celular = "809-707-2389",
+                Telefono = "809-524-5586",
+                Genero = "Masculino",
+                Matricula = "SD-2022-04397",
+                Carrera = "Ingeniería de Software",
+                Campus = "Santo Domingo Oeste",
+                Correo = "SD-2022-04397@ufhec.edu.do",
+                Tanda = "Nocturna"
+            },
+
+            new EstudianteViewModel {
+                NombreCompleto = "Lorena Frías",
+                Direccion = "Calle 20 #10, Sto. Dgo. D.N.",
+                Celular = "809-254-5865",
+                Telefono = "809-548-2520",
+                Genero = "Femenino",
+                Matricula = "SD-2022-21452",
+                Carrera = "Enfermería",
+                Campus = "Santo Domingo Oeste",
+                Correo = "SD-2022-21452@ufhec.edu.do",
+                Tanda = "Nocturna"
+            }
+        };
 
         private static List<CarreraViewModel> carreras = CarrerasController.carreras;
+
+        private static List<RecintoViewModel> recintos = RecintosController.recintos;
 
         [HttpGet]
         public IActionResult Index()
         {
+
             ViewBag.Carreras = carreras;
+            ViewBag.Recintos = recintos;
             return View();
         }
 
@@ -42,6 +73,8 @@ namespace Actividad4LengProg3.Controllers
         {
             var estudiante = estudiantes.FirstOrDefault(e => e.Matricula == matricula);
             if (estudiante == null) return NotFound();
+            ViewBag.Carreras = CarrerasController.carreras;
+            ViewBag.Recintos = RecintosController.recintos;
             return View(estudiante);
         }
 

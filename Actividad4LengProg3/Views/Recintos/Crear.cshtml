@@ -20,6 +20,12 @@
                 <span asp-validation-for="Nombre" class="text-danger"></span>
             </div>
 
+            <div class="">
+                <label asp-for="Direccion" class="form-label">Dirección del Recinto</label>
+                <input asp-for="Direccion" class="form-control" placeholder="Baní" />
+                <span asp-validation-for="Direccion" class="text-danger"></span>
+            </div>
+
             <div class="col-6">
                 <button type="submit" class="btn btn-primary">Guardar</button>
                 <a asp-action="Index" class="btn btn-outline-secondary">Cancelar</a>
